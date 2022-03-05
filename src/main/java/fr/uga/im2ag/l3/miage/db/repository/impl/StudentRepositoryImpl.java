@@ -4,11 +4,13 @@ import fr.uga.im2ag.l3.miage.db.repository.api.StudentRepository;
 import fr.uga.im2ag.l3.miage.db.model.Student;
 
 import javax.persistence.EntityManager;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRepositoryImpl extends BaseRepositoryImpl implements StudentRepository {
 
-
+  
     /**
      * Build a base repository
      *
@@ -32,19 +34,23 @@ public class StudentRepositoryImpl extends BaseRepositoryImpl implements Student
 
     @Override
     public Student findById(Long id) {
-        // TODO
-        return null;
+
+        return entityManager.find(Student.class,id);
     }
 
     @Override
     public List<Student> getAll() {
-        // TODO
-        return null;
+
+        List<Student> liste = new ArrayList<>();
+        liste = entityManager.createNamedQuery("All-Student",Student.class)
+        .getResultList();
+        return liste;
     }
 
     @Override
     public List<Student> findStudentHavingGradeAverageAbove(float minAverage) {
-        // TODO
-        return null;
+        return entityManager.createNamedQuery("findStudentHavingGradeAverageAbove", Student.class)
+                .setParameter("minAverage", minAverage)
+                .getResultList();
     }
 }

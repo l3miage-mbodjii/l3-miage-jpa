@@ -23,7 +23,7 @@ class GraduationClassTest extends Base {
 
     @Test
     void shouldSaveClass() {
-        // TODO
+     
     }
 
 
