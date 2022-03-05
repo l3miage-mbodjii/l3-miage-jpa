@@ -23,7 +23,7 @@ class TeacherTest extends Base {
 
     @Test
     void shouldSaveTeacher()  {
-        // TODO
+        
     }
 
     @Test
