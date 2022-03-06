@@ -27,7 +27,7 @@ class TeacherTest extends Base {
         final var subject = Fixtures.createSubject();
         final var clas = Fixtures.createClass();
         final var teach1 = Fixtures.createTeacher(subject, clas);
-        final var teach2 = Fixtures.createTeacher(subject, clas);
+       
 
         entityManager.getTransaction().begin();
 
@@ -36,16 +36,9 @@ class TeacherTest extends Base {
         teacherRepository.save(teach1);
         entityManager.getTransaction().commit();
         entityManager.detach(teach1);
-     
-
-        teacherRepository.save(teach2);
-        entityManager.getTransaction().commit();
-        entityManager.detach(teach2);
-
         var oneTeacher = teacherRepository.findById(teach1.getId());
         assertThat(oneTeacher).isNotNull().isNotSameAs(teach1).isEqualTo(teach1);
-        var secondTeacher = teacherRepository.findById(teach2.getId());
-        assertThat(secondTeacher).isNotNull().isNotSameAs(teach2).isEqualTo(teach2);
+        
     }
 
     @Test
