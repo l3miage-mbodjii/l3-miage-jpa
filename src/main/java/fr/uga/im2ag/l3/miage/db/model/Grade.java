@@ -1,8 +1,21 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
-// TODO ajouter une named query pour une des requêtes à faire dans le repository
+
+@Entity
+@Table(name = "Grade")
+@NamedQueries({
+    @NamedQuery(name = "getAll",query = "select g from GraduationClass g" ),
+    @NamedQuery(name = "findHighestGradesBySubject",query = "select g from GraduationClass g" ),
+    @NamedQuery(name = "Grade.findHighestGrades", query = "select g from Grade g where g.value > :limit"),
+    @NamedQuery(name = "Grade.findHighestGradeByStudent", query = "select g from Grade g where g.subject = :subject and g.value > :limit")
+})
+
 public class Grade {
 
     private Long id;
