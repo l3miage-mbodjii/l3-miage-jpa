@@ -1,7 +1,9 @@
 package fr.uga.im2ag.l3.miage.db.model;
 
+import javax.annotation.processing.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -19,6 +21,7 @@ import java.util.Date;
     
 public class Subject {
     @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private Integer points;

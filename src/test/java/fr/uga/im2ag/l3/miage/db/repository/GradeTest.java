@@ -23,7 +23,7 @@ class GradeTest extends Base {
 
     @Test
     void shouldSaveGrade() {
-        // TODO
+        // T
     }
 
     @Test

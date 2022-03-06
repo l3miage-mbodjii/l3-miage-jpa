@@ -14,7 +14,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CreaduationClass")
 @NamedQueries({
-    @NamedQuery(name = "All-Graduation-class",query = "select gc from GraduationClass gc" )
+    @NamedQuery(name = "findByYearAndName", query = "select gc from GraduationClass gc where gc.name = :name and gc.year = :year "),
+    @NamedQuery(name = "getAll", query = "select gc from GraduationClass gc")
 })
 public class GraduationClass {
     @Id
